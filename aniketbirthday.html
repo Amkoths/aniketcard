@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Boo!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .page {
+            display: none;
+            background-color: white;
+            width: 80%;
+            max-width: 600px;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #ff1493;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 20px;
+            color: #333;
+            margin: 20px 0;
+        }
+
+        .emoji {
+            font-size: 80px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .emoji:hover {
+            transform: scale(1.2);
+        }
+
+        .hidden-message {
+            font-size: 18px;
+            color: #555;
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Page 1: Happy Birthday with Cake -->
+    <div class="page" id="page1">
+        <h1>Happy Birthday Boo!</h1>
+        <div class="emoji" id="cake">🎂</div>
+    </div>
+
+    <!-- Page 2: Rose with Message -->
+    <div class="page" id="page2">
+        <h1>Here's a Rose for you, Baby!</h1>
+        <p>🌹</p>
+        <div class="emoji" id="rose">🌹</div>
+    </div>
+
+    <!-- Page 3: Heartfelt Message -->
+    <div class="page" id="page3">
+        <p>Sorry baby, couldn't make your day special and ruined your mood. But just know, of all the unexpected things that happened to me in the past year, meeting you was the best thing that I will cherish forever. 💖</p>
+    </div>
+
+    <script>
+        // Initial page display
+        let currentPage = 1;
+        showPage(currentPage);
+
+        // Function to show the current page
+        function showPage(pageNumber) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.style.display = 'none'; // Hide all pages
+            });
+            document.getElementById(`page${pageNumber}`).style.display = 'block'; // Show current page
+        }
+
+        // Page 1 - Show page 2 when the cake is tapped
+        document.getElementById('cake').addEventListener('click', function() {
+            currentPage = 2;
+            showPage(currentPage);
+        });
+
+        // Page 2 - Show page 3 when the rose is tapped
+        document.getElementById('rose').addEventListener('click', function() {
+            currentPage = 3;
+            showPage(currentPage);
+        });
+    </script>
+
+</body>
+</html>
